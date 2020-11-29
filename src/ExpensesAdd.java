@@ -7,25 +7,25 @@ public class ExpensesAdd
     {
         String users = bill.getUid();
         Users user = usersHashMap.get(users);
-        System.out.println("user :" + user.getUid());
         ArrayList<Users> involved = bill.getInvolvedUser();
         HashMap<Users, Integer> friends = user.getListofFriends();
         int totalFriends = bill.involvedUser.size();
         int moneyPaid =  bill.getMoneyPaid()/totalFriends;
         for(Users userInvolve : involved)
         {
-            System.out.println("userInvolve " + userInvolve.getUid());
             if(!(userInvolve.equals(user)))
             {
             if(friends.containsKey(userInvolve))
             {
-                int current = friends.get(userInvolve.getUid());
+                System.out.println("userInvolve : " + userInvolve.getUid());
+                int current = friends.get(userInvolve);
+                System.out.println("current :" + current);
                 current = current - moneyPaid;
                 friends.put(userInvolve,current);  // add in current
                 HashMap<Users, Integer> friend = userInvolve.getListofFriends();
-                if(friend.containsKey(users))
+                if(friend.containsKey(user))
                 {
-                    current = friend.get(userInvolve.getUid());
+                    current = friend.get(user);
                     current = current + moneyPaid;
                     friend.put(user,current);
                 }

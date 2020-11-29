@@ -33,9 +33,30 @@ public class main
         involved.add(user2);
         involved.add(user3);
         bill.setInvolvedUser(involved);
-        bill.setMoneyPaid(100);
+        bill.setMoneyPaid(150);
         expensesAdd1.addPaidMoney(bill,usersHashMap);
+        System.out.println("---Split the bill--");
+        expensesAdd1.showExpense(user1);
+        System.out.println("---Split the bill--");
+        expensesAdd1.showExpense(user2);
+        System.out.println("---Split the bill--");
         expensesAdd1.showExpense(user3);
 
+        ExpensesAdd expensesAdd2=new ExpensesAdd();
+        Bill bill1 = new Bill();
+        bill1.setUid("u2");
+        ArrayList<Users> involved1=new ArrayList<>();
+        involved1.add(user3);
+        involved1.add(user2);
+        involved1.add(user1);
+        bill1.setInvolvedUser(involved1);
+        bill1.setMoneyPaid(150);
+        expensesAdd2.addPaidMoney(bill1,usersHashMap);
+        System.out.println("---Split the bill--");
+        expensesAdd2.showExpense(user1);
+        System.out.println("---Split the bill--");
+        expensesAdd2.showExpense(user2);
+        System.out.println("---Split the bill--");
+        expensesAdd2.showExpense(user3);
     }
 }
